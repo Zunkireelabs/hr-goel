@@ -1,0 +1,272 @@
+---
+layout: base.njk
+title: Home
+permalink: /
+---
+<section class="hero">
+  <div class="hero-media" style="background-image:url('/assets/hero-building-wide.jpg')"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1>Building Nepal. Backed by trust.</h1>
+      <p class="lead">From bitumen to hydropower — HR Goel Group is Nepal's one-stop construction partner.</p>
+    </div>
+  </div>
+</section>
+
+<section class="impact-section">
+  <div class="wrap">
+    <div class="impact-top">
+      <h2 class="impact-heading">Leading Nepal's development.</h2>
+      <p class="impact-lead">Since the 1970s, HR Goel Group has grown from a single family trading business into a diversified group spanning construction materials, energy, finance and automotive. Backed by a third generation of family leadership, we're building the infrastructure Nepal needs to thrive.</p>
+    </div>
+    <div class="impact-stats">
+      <div class="impact-stat">
+        <div class="num">40<span class="plus">+</span></div>
+        <div class="sub">Years of experience, since the 1970s</div>
+        <a href="/about/#story">Discover our story <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="impact-stat">
+        <div class="num">7<span class="plus">+</span></div>
+        <div class="sub">Branches nationwide</div>
+        <a href="/dealers/">Find a branch <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="impact-stat">
+        <div class="num">{{ products.categories.length }}</div>
+        <div class="sub">Business sectors, one connected group</div>
+        <a href="/business-overview/">See our sectors <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="impact-stat">
+        <div class="num">3<span class="plus">rd</span></div>
+        <div class="sub">Generation family leadership</div>
+        <a href="/about/#team">Meet the team <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% set divisionImages = {
+  "bitumen": "/assets/sectors/bitumen.jpg",
+  "cement": "/assets/sectors/cement.jpg",
+  "construction-chemicals": "/assets/sectors/construction-chemicals.webp",
+  "hydropower": "/assets/sectors/hydropower.jpg",
+  "banking-insurance": "/assets/sectors/banking.jpeg",
+  "auto": "/assets/sectors/auto.jpg",
+  "consumer-fmcg": "/assets/projects/modern-residence.jpg"
+} %}
+{% set liveDivisions = products.categories | rejectattr("draft") | list %}
+<section class="sectors-section">
+  <div class="wrap">
+    <div class="sectors-head">
+      <h2>Our sectors</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="sector-bento">
+      {% for d in liveDivisions %}
+      {% if loop.index <= 5 %}
+      <a class="sector-tile" href="/business-overview/#{{ d.slug }}">
+        <img src="{{ divisionImages[d.slug] }}" alt="{{ d.name }}" loading="lazy">
+        <div class="sector-tile-body">
+          <span class="sector-tile-num">HRGG {{ d.name }}</span>
+          <h3>{{ d.summary }}</h3>
+          <span class="sector-tile-discover">Discover <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div style="text-align:center; margin-top:32px;">
+      <a class="btn btn-outline" href="/business-overview/">View all {{ liveDivisions.length }} sectors <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="journey-section section-white">
+  <div class="wrap journey-head">
+    <h2>Four decades, one family, one promise</h2>
+  </div>
+</section>
+{% for m in milestones %}
+<div class="{% if loop.index0 is even %}timeline-row--a{% else %}timeline-row--b{% endif %}">
+  <div class="wrap timeline-row-inner{% if loop.index0 is odd %} is-reverse{% endif %}">
+    <div class="timeline-media"><img src="{{ m.img }}" alt="{{ m.title }}" loading="lazy"></div>
+    <div class="timeline-content">
+      <span class="timeline-era">{{ m.era }}</span>
+      <h3>{{ m.title }}</h3>
+      <blockquote class="timeline-quote"><p>{{ m.summary }}</p></blockquote>
+    </div>
+  </div>
+  {% if loop.last %}
+  <div class="wrap" style="text-align:center; padding-bottom:32px;">
+    <a class="btn btn-outline" href="/about/">More about us →</a>
+  </div>
+  {% endif %}
+</div>
+{% endfor %}
+
+<section class="diff-section">
+  <div class="wrap diff-grid">
+    <div class="diff-content">
+      <h2>What makes us different</h2>
+      <p class="section-lead" style="margin-bottom:0;">Four decades in, our commitment hasn't changed — quality products, technical know-how and support you can reach nationwide.</p>
+      <ul class="diff-list">
+        <li>
+          <div><h3>Excellence</h3><p>A relentless pursuit of excellence — including free lab testing on our Dolphin NL bitumen, so quality is proven, not just promised.</p></div>
+        </li>
+        <li>
+          <div><h3>Customer commitment</h3><p>Deep commitment to exceeding customer expectations, from enquiry to delivery.</p></div>
+        </li>
+        <li>
+          <div><h3>Innovation</h3><p>A culture of innovation across every business vertical, from bitumen to hydropower.</p></div>
+        </li>
+      </ul>
+    </div>
+    <div class="diff-collage">
+      <div class="diff-collage-tall">
+        <img src="/assets/projects/house.jpg" alt="HRGG construction site" loading="lazy">
+      </div>
+      <div class="diff-collage-stack">
+        <div class="diff-collage-small">
+          <img src="/assets/projects/road.jpg" alt="HRGG road works" loading="lazy">
+        </div>
+        <div class="diff-collage-small">
+          <img src="/assets/projects/bridge.jpg" alt="HRGG bridge project" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="photo-banner">
+  <div class="photo-banner-mosaic" aria-hidden="true">
+    <img src="/assets/sectors/hydropower.jpg" alt="">
+    <img src="/assets/projects/tunnel.jpg" alt="">
+    <img src="/assets/sectors/nepal-highway.jpg" alt="">
+  </div>
+  <div class="wrap">
+    <div class="photo-banner-body">
+      <h2>Investing in Nepal's clean energy future</h2>
+      <p>Beyond construction materials, HRGG invests directly in Nepal's hydropower sector — through Summit Power Company and Upper Balepi Hydropower — supporting the clean energy infrastructure the country needs to grow.</p>
+      <a class="btn btn-gold" href="/sustainability/">Discover our approach <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section-white trust-section">
+  <div class="wrap">
+    <div class="trust-panel">
+      <div class="trust-panel-media">
+        <img src="/assets/cta-building.jpg" alt="HRGG building" loading="lazy">
+      </div>
+      <div class="trust-panel-body">
+        <h2>Built on decades of stability</h2>
+        <p>A track record that gives customers, dealers and financial partners the confidence to build with us for the long term.</p>
+        <a class="btn btn-gold" href="/investors/">More for investors <span aria-hidden="true">→</span></a>
+        <div class="trust-stats-row">
+          <div class="trust-stat">
+            <div class="num">40<span class="plus">+</span></div>
+            <div class="sub">Years of continuous operation, since the 1970s</div>
+          </div>
+          <div class="trust-stat">
+            <div class="num">3<span class="plus">rd</span></div>
+            <div class="sub">Generation family leadership, uninterrupted</div>
+          </div>
+          <div class="trust-stat">
+            <div class="num">7<span class="plus">+</span></div>
+            <div class="sub">Branches carrying nationwide stock and support</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap trust-partners-wrap">
+    <p class="partners-label">Backed by partnerships across banking, insurance and industry</p>
+    <div class="partners-divider"></div>
+    <div class="partners-row">
+      <span class="partner-logo">Shivam Cement (NEPSE-listed)</span>
+      <span class="partner-logo">Kumari Bank</span>
+      <span class="partner-logo">Himalayan Bank</span>
+      <span class="partner-logo">Laxmi Sunrise Bank</span>
+      <span class="partner-logo">Prabhu Bank</span>
+      <span class="partner-logo">Asian Life Insurance</span>
+      <span class="partner-logo">Sanima Reliance Life</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt leadership-section">
+  <div class="wrap leadership-head">
+    <h2>Led by the Goel family</h2>
+    <p class="section-lead" style="margin:0 auto;">Third-generation leadership carrying forward a legacy built since the 1970s.</p>
+  </div>
+  <div class="wrap leadership-grid">
+    {% for p in leadership.team %}
+    {% if loop.index <= 3 %}
+    <div class="leader-card-v2">
+      <div class="leader-photo"><img src="/assets/leadership/{{ p.img }}" alt="{{ p.name }}" loading="lazy"></div>
+      <div class="leader-info">
+        <p class="leader-role">{{ p.role }}</p>
+        <h3 class="leader-name">{{ p.name }}</h3>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div class="wrap" style="text-align:center; margin-top:32px;">
+    <a class="btn btn-outline" href="/about/#team">Meet the full team →</a>
+  </div>
+</section>
+
+{% include "enquiry-cta.njk" %}
+
+<section class="section-cream hrgg-section">
+  <div class="wrap">
+    <div class="hrgg-head">
+      <h2>More from HRGG</h2>
+      <p class="section-lead">Everything you need to find a branch, get documentation or reach our technical team, in one place.</p>
+    </div>
+    <div class="hrgg-mosaic">
+      <a class="hrgg-tile hrgg-tile--photo" href="/dealers/" style="background-image:url('/assets/hero-building.jpg')">
+        <h3>Dealer Locator</h3>
+        <p>Find your nearest branch or dealer by province, district and product.</p>
+        <span class="hrgg-tile-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="hrgg-tile hrgg-tile--accent" href="/downloads/">
+        <span class="hrgg-eyebrow">Resources</span>
+        <h3>Download Centre</h3>
+        <p>Catalogues, TDS, MSDS, certificates and test reports — all in one place.</p>
+        <span class="hrgg-tile-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="hrgg-tile" href="/support/">
+        <span class="hrgg-eyebrow">Support</span>
+        <h3>Technical Support</h3>
+        <p>Submit a problem with photos and get routed to the right solution.</p>
+        <span class="hrgg-tile-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="hrgg-tile hrgg-tile--stat" href="/tools/">
+        <span class="hrgg-eyebrow">Tools</span>
+        <span class="hrgg-stat-num">4</span>
+        <p>Quantity calculators — bitumen, admixture, waterproofing &amp; flooring.</p>
+      </a>
+
+      <div class="hrgg-tile hrgg-tile--list">
+        <span class="hrgg-eyebrow hrgg-eyebrow--light">Platform</span>
+        <h3>Connected Accounts</h3>
+        <ul class="hrgg-tile-list">
+          <li>
+            <span>Connected Sales &amp; Support</span>
+            <small>Every enquiry tracked from first contact through to order and delivery.</small>
+          </li>
+          <li>
+            <span>Contractor / Engineer Accounts</span>
+            <small>Dedicated logins for recurring buyers, with order history and technical resources.</small>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

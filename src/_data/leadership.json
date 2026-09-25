@@ -1,0 +1,57 @@
+{
+  "founders": [
+    {
+      "name": "Hari Ram Goel",
+      "initials": "HR",
+      "img": "hari-ram-goel.jpg",
+      "role": "Founder",
+      "era": "1970s",
+      "bio": "Laid the foundations of the group in the 1970s, building the first trusted name in Nepal's construction materials trade."
+    },
+    {
+      "name": "Ashok Kumar Goel",
+      "initials": "AK",
+      "role": "Founder's Son — Carried the Legacy Forward",
+      "era": "1990s – 2000s",
+      "bio": "Expanded the business across cement and bitumen, introducing Nepal's first branded bitumen product and setting the standard the group still builds on."
+    }
+  ],
+  "team": [
+    {
+      "name": "Vishwanath Goel",
+      "role": "Chairman",
+      "img": "vishwanath-goel.png",
+      "bio": "Leads the group's third generation of stewardship, carrying forward four decades of trust across Nepal's construction sector."
+    },
+    {
+      "name": "Surendra Kumar Goel",
+      "role": "Vice Chairman",
+      "img": "surendra-goel.jpeg",
+      "bio": "Guides the group's expansion across construction materials, energy and financial partnerships nationwide."
+    },
+    {
+      "name": "Ashish Goel",
+      "role": "Director",
+      "img": "ashish-goel.png",
+      "bio": "Part of the third-generation leadership carrying HRGG's legacy of quality and trust forward."
+    },
+    {
+      "name": "Gaurav Goel",
+      "role": "Director",
+      "img": "gaurav-goel.jpeg",
+      "bio": "Part of the third-generation leadership carrying HRGG's legacy of quality and trust forward."
+    },
+    {
+      "name": "Priyesh Goel",
+      "role": "Director",
+      "img": "priyesh-goel.jpeg",
+      "bio": "Part of the third-generation leadership carrying HRGG's legacy of quality and trust forward."
+    },
+    {
+      "name": "Anupam Goel",
+      "role": "Director",
+      "img": "anupam-goel.jpeg",
+      "bio": "Part of the third-generation leadership carrying HRGG's legacy of quality and trust forward."
+    }
+  ]
+}

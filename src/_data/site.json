@@ -1,0 +1,21 @@
+{
+  "name": "HR Goel Group",
+  "tagline": "Delivering Dreams",
+  "phone": ["01-4257855", "01-4257866"],
+  "email": "info@hrgoelgroup.com",
+  "whatsapp": "https://wa.me/9779800000000",
+  "branches": [
+    "Kathmandu (HQ)",
+    "Hetauda, Makwanpur",
+    "Birgunj, Parsa",
+    "Birtamod, Jhapa",
+    "Biratnagar, Morang",
+    "Bhairahawa, Rupandehi",
+    "Krishnanagar, Kapilvastu"
+  ],
+  "social": {
+    "facebook": "#",
+    "linkedin": "#",
+    "instagram": "#"
+  }
+}

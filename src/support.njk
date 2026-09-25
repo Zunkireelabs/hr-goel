@@ -1,0 +1,85 @@
+---
+layout: base.njk
+title: Technical Support
+permalink: /support/
+---
+<section class="page-hero">
+  <div class="page-hero-media" style="background-image:url('/assets/projects/tunnel.jpg')" aria-hidden="true"></div>
+  <div class="page-hero-overlay" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>Technical Support</h1>
+    <p>Describe your problem, share photos or drawings, and get the right solution from our technical team.</p>
+  </div>
+</section>
+
+<section class="section-tight-top">
+  <div class="wrap grid grid-2">
+    <div>
+      <h2>Submit a technical query</h2>
+      <p class="section-lead">Our technical team responds within 1 business day.</p>
+      <form class="form card" onsubmit="return false;">
+        <div class="full">
+          <label for="s-problem">What's the problem?</label>
+          <select id="s-problem">
+            <option>Water leakage</option>
+            <option>Concrete cracking</option>
+            <option>Need stronger concrete</option>
+            <option>Need grouting</option>
+            <option>Industrial floor damage</option>
+            <option>Tunnel project support</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="full">
+          <label for="s-desc">Describe the issue</label>
+          <textarea id="s-desc" rows="4" placeholder="Tell us what's happening on site"></textarea>
+        </div>
+        <div class="full">
+          <label for="s-file">Photos or drawings</label>
+          <input id="s-file" type="file" multiple>
+        </div>
+        <div class="full">
+          <button class="btn btn-primary" type="submit">Submit query</button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <h2>Common problems we solve</h2>
+      <p class="section-lead">Tell us the problem — we'll point you to the right product system.</p>
+      <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+        <a class="tile problem-tile" href="/business-overview/#construction-chemicals">
+          <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3s6 7 6 11a6 6 0 1 1-12 0c0-4 6-11 6-11Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+          <span><h3>Water leakage</h3><p>Waterproofing solutions</p></span>
+          <span class="problem-tile-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="tile problem-tile" href="/business-overview/#construction-chemicals">
+          <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M9 4l-2 6 4 2-3 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span><h3>Concrete cracking</h3><p>Repair &amp; restoration</p></span>
+          <span class="problem-tile-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="tile problem-tile" href="/business-overview/#construction-chemicals">
+          <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+          <span><h3>Need stronger concrete</h3><p>Admixtures / microsilica</p></span>
+          <span class="problem-tile-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="tile problem-tile" href="/business-overview/#construction-chemicals">
+          <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h6v2a2 2 0 1 0 4 0V4h6v6h-2a2 2 0 1 0 0 4h2v6h-6v-2a2 2 0 1 0-4 0v2H4v-6h2a2 2 0 1 0 0-4H4V4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+          <span><h3>Need grouting</h3><p>Grouts &amp; anchors</p></span>
+          <span class="problem-tile-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="tile problem-tile" href="/business-overview/#construction-chemicals">
+          <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21V10l5 3V10l5 3V7l6 4v10H3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 21v-4M12 21v-4M17 21v-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <span><h3>Industrial floor damage</h3><p>Industrial flooring</p></span>
+          <span class="problem-tile-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="tile problem-tile" href="/business-overview/#construction-chemicals">
+          <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21V12a9 9 0 0 1 18 0v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M3 21h4M17 21h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <span><h3>Tunnel project</h3><p>Tunnelling solutions</p></span>
+          <span class="problem-tile-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "enquiry-cta.njk" %}

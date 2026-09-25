@@ -1,0 +1,151 @@
+---
+layout: base.njk
+pagination:
+  data: products.categories
+  size: 1
+  alias: cat
+permalink: "/business-overview/{{ cat.slug }}/"
+eleventyComputed:
+  title: "{{ cat.name }}"
+---
+{% set buildingTypeLabels = {
+  "roads-highways": "Roads & Highways",
+  "bridges-infrastructure": "Bridges & Infrastructure",
+  "home-construction": "Home Construction",
+  "commercial-building": "Commercial Buildings",
+  "industrial": "Industrial Projects",
+  "mining-tunnelling": "Mining & Tunnelling"
+} %}
+{% set prevCat = pagination.pages[(pagination.pageNumber - 1 + pagination.pages.length) % pagination.pages.length] %}
+{% set nextCat = pagination.pages[(pagination.pageNumber + 1) % pagination.pages.length] %}
+
+<section class="sector-hero">
+  <div class="sector-hero-media" style="background-image:url('{{ cat.image }}'); background-position: {{ cat.heroPosition or 'center' }};" aria-hidden="true"></div>
+  <div class="sector-hero-overlay" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sector-hero-top">
+      <p class="sector-breadcrumb"><a href="/business-overview/">Business Overview</a> <span aria-hidden="true">/</span> {{ cat.name }}{% if cat.draft %} <span class="badge-draft">Coming soon</span>{% endif %}</p>
+      <span class="sector-hero-index">Sector 0{{ pagination.pageNumber + 1 }} / 0{{ pagination.pages.length }}</span>
+    </div>
+    <h1>{{ cat.tagline }}</h1>
+    <p class="sector-hero-dek">{{ cat.summary }}</p>
+  </div>
+</section>
+
+<section class="sector-intro-band">
+  <div class="wrap sector-intro-grid">
+    <div>
+      <h2>{{ cat.name }}</h2>
+      <p>{{ cat.summary }}</p>
+    </div>
+    <div class="sector-stats-grid">
+      <div class="sector-stat">
+        <span class="sector-stat-rule" aria-hidden="true"></span>
+        <span class="num">{{ cat.items.length }}<span class="plus">+</span></span>
+        <p>Key partner{% if cat.items.length != 1 %}s{% endif %} and brands operating in this sector.</p>
+      </div>
+      <div class="sector-stat">
+        <span class="sector-stat-rule" aria-hidden="true"></span>
+        <span class="num">40<span class="plus">+</span></span>
+        <p>Years of HRGG Group experience across construction, energy and finance.</p>
+      </div>
+      <div class="sector-stat">
+        <span class="sector-stat-rule" aria-hidden="true"></span>
+        <span class="num">7</span>
+        <p>Business sectors making up the diversified HRGG Group.</p>
+      </div>
+    </div>
+  </div>
+  {% if cat.items.length > 1 %}
+  <div class="wrap sector-toc">
+    <p class="sector-toc-label">In this sector</p>
+    <div class="sector-toc-list">
+      {% for item in cat.items %}
+      <a href="#item-{{ loop.index }}"><span class="sector-toc-num">{{ loop.index }}</span>{{ item.name }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</section>
+
+{% if cat.buildingTypes.length %}
+<section class="section-white" style="padding-top:44px; padding-bottom:44px;">
+  <div class="wrap">
+    <div class="sector-usage">
+      <p class="sector-usage-label">Where it's used</p>
+      <div class="sector-usage-pills">
+        {% for bt in cat.buildingTypes %}
+        <span class="sector-usage-pill">{{ buildingTypeLabels[bt] or bt }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% set featuredItems = cat.items.slice(0, 4) %}
+{% set moreItems = cat.items.slice(4) %}
+
+{% for item in featuredItems %}
+<section class="sector-feature {% if loop.index0 % 2 == 1 %}sector-feature--reverse{% endif %}" id="item-{{ loop.index }}">
+  <div class="sector-feature-media">
+    <img src="{{ item.image or cat.image }}" alt="{{ item.name }}" loading="lazy">
+    <span class="sector-feature-caption">{{ cat.name }} · {{ "0" + loop.index if loop.index < 10 else loop.index }}</span>
+  </div>
+  <div class="sector-feature-panel {% if loop.index0 % 2 == 1 %}sector-feature-panel--light{% endif %}">
+    <span class="sector-feature-ghost-num" aria-hidden="true">{{ "0" + loop.index if loop.index < 10 else loop.index }}</span>
+    <h3>{{ item.name }}</h3>
+    <p>{{ item.desc }}</p>
+    <a class="link-arrow" href="/contact/">Enquire about {{ item.name }} <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+{% endfor %}
+
+{% if moreItems.length %}
+<section class="section-white">
+  <div class="wrap">
+    <div class="grid grid-3 product-items-grid">
+      {% for item in moreItems %}
+      <div class="tile" id="item-{{ loop.index + 4 }}">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="sector-cta-band">
+  <div class="wrap">
+    <h2>Want to know more about {{ cat.name }}? Get in touch with our team.</h2>
+    <div class="sector-cta-links">
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      <a href="tel:{{ site.phone[0] }}">{{ site.phone[0] }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-white">
+  <div class="wrap">
+    <p class="sector-page-nav-top"><a href="/business-overview/">← All business sectors</a></p>
+    <div class="sector-story-nav">
+      <a class="sector-story-card sector-story-card--prev" href="/business-overview/{{ prevCat.slug }}/" style="background-image:url('{{ prevCat.image }}')">
+        <span class="sector-story-kicker">Previous sector</span>
+        <h3>{{ prevCat.name }}</h3>
+        <span class="sector-story-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a class="sector-story-card sector-story-card--next" href="/business-overview/{{ nextCat.slug }}/" style="background-image:url('{{ nextCat.image }}')">
+        <span class="sector-story-kicker">Next sector</span>
+        <h3>{{ nextCat.name }}</h3>
+        <span class="sector-story-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% include "enquiry-cta.njk" %}

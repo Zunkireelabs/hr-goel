@@ -1,0 +1,186 @@
+---
+layout: base.njk
+title: About
+permalink: /about/
+---
+<section class="page-hero">
+  <div class="page-hero-media" style="background-image:url('/assets/hero-building.jpg')" aria-hidden="true"></div>
+  <div class="page-hero-overlay" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>About {{ site.name }}</h1>
+    <p>A storied legacy spanning over four decades — one of Nepal's pioneering business conglomerates.</p>
+  </div>
+</section>
+
+<section class="section-white about-summary">
+  <div class="wrap about-summary-grid">
+    <div class="about-summary-lead">
+      <h2>Nepal's one-stop construction and diversified business group</h2>
+      <p class="section-lead" style="margin-bottom:0;">HR Goel Group started as a single construction-materials trading counter in the 1970s. Today it's a diversified group spanning bitumen, cement, construction chemicals, hydropower, banking &amp; insurance, automotive and consumer goods — still family-led, still headquartered in Nepal, and still building the country's roads, homes and infrastructure every day.</p>
+    </div>
+    <div class="about-summary-facts">
+      <div class="about-fact"><span class="num">{{ products.categories.length }}</span><span class="label">Business sectors</span></div>
+      <div class="about-fact"><span class="num">40<span class="plus">+</span></span><span class="label">Years of operation</span></div>
+      <div class="about-fact"><span class="num">7<span class="plus">+</span></span><span class="label">Branches nationwide</span></div>
+      <div class="about-fact"><span class="num">3<span class="plus">rd</span></span><span class="label">Generation family-led</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-white origin-section" id="story">
+  <div class="wrap origin-grid">
+    <div class="origin-mark">
+      <img src="/assets/leadership/{{ leadership.founders[0].img }}" alt="{{ leadership.founders[0].name }}, founder of {{ site.name }}" loading="lazy">
+    </div>
+    <div class="origin-content">
+      <h2>From one man's vision to Nepal's construction backbone</h2>
+      <p class="origin-lede">In the 1970s, the late <strong>Hari Ram Goel</strong> laid the foundation of what would become one of Nepal's most trusted construction names — starting a family trading business built on a simple idea: deliver what you promise.</p>
+      <p class="origin-lede">His son, the late <strong>Ashok Kumar Goel</strong>, carried that vision forward — introducing Nepal's first branded bitumen and expanding into cement, setting a standard for quality the group still holds itself to.</p>
+      <p class="origin-lede">Today, a third generation of the Goel family — led by Chairman <strong>Vishwanath Goel</strong> and Vice Chairman <strong>Surendra Kumar Goel</strong> — carries that legacy into construction materials, energy, finance and automotive, still guided by the same mission.</p>
+    </div>
+  </div>
+</section>
+
+<section class="statement-band">
+  <div class="wrap">
+    <p>For over four decades, HR Goel Group has built what Nepal is built on — the roads, homes and industry that carry the country forward.</p>
+  </div>
+</section>
+
+<section class="section-white chairman-section">
+  <div class="wrap chairman-grid">
+    <div class="chairman-quote">
+      <span class="chairman-mark" aria-hidden="true">&ldquo;</span>
+      <p>&ldquo;{{ site.tagline }} — that's not just our tagline. Four decades in, it's still the standard every branch, every product and every person at HRGG is held to.&rdquo;</p>
+      <div class="chairman-attribution">
+        <strong>Vishwanath Goel</strong>
+        <span>Chairman, HR Goel Group</span>
+      </div>
+      <a class="btn btn-outline" href="/about/#team">Meet our leadership <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="chairman-photo">
+      <img src="/assets/leadership/vishwanath-goel.png" alt="Vishwanath Goel, Chairman of HR Goel Group" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="building">
+  <div class="wrap legacy-head" style="text-align:center; max-width:680px; margin:0 auto 48px;">
+    <h2>Built one trade, one branch, one investment at a time</h2>
+    <p class="section-lead" style="margin:14px auto 0;">HRGG didn't set out to become a conglomerate — it grew into one by backing every opportunity to build and invest with the same discipline: earn trust first, then put capital behind it.</p>
+  </div>
+
+  <div class="wrap founders-strip">
+    <div class="founder-card">
+      <span class="founder-avatar">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="8" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="6" width="8" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="8" y="13" width="8" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>
+      </span>
+      <div>
+        <span class="founder-era">Materials</span>
+        <h3>Start with what Nepal is building</h3>
+        <p class="founder-role">Bitumen, cement &amp; construction chemicals</p>
+        <p>The group's roots are in supplying the materials Nepal's roads and buildings are made of — a trade built on consistent quality and reliable supply, long before it became a group.</p>
+      </div>
+    </div>
+    <div class="founder-card">
+      <span class="founder-avatar">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <div>
+        <span class="founder-era">Investing</span>
+        <h3>Put profits back into new ventures</h3>
+        <p class="founder-role">Energy, finance &amp; automotive</p>
+        <p>Each generation reinvested what the core trading business earned into new sectors — hydropower, financial services and automotive — turning a single trading line into a diversified group.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="section-alt leadership-section" id="team">
+  <div class="wrap leadership-head">
+    <h2>Leadership</h2>
+  </div>
+  <div class="wrap leadership-grid leadership-grid-6">
+    {% for p in leadership.team %}
+    <div class="leader-card-v2">
+      <div class="leader-photo"><img src="/assets/leadership/{{ p.img }}" alt="{{ p.name }}" loading="lazy"></div>
+      <div class="leader-info">
+        <p class="leader-role">{{ p.role }}</p>
+        <h3 class="leader-name">{{ p.name }}</h3>
+        {% if p.bio %}<p class="leader-bio">{{ p.bio }}</p>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="vision-section" id="mission">
+  <div class="wrap vision-head">
+    <h2>What drives us forward</h2>
+    <p class="vision-lead">Four decades in, the same question still shapes every decision we make — what does Nepal need to build next, and how do we help build it better?</p>
+  </div>
+
+  <div class="wrap vision-grid">
+    <div class="vision-card" id="vision">
+      <span class="icon-circle icon-circle--lg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.2" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.6" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.1" fill="currentColor"/></svg>
+      </span>
+      <h3>Mission</h3>
+      <p>To lead in the development and construction of Nepal.</p>
+    </div>
+    <div class="vision-card">
+      <span class="icon-circle icon-circle--lg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M2.2 12S5.8 5 12 5s9.8 7 9.8 7-3.6 7-9.8 7-9.8-7-9.8-7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>
+      </span>
+      <h3>Vision</h3>
+      <p>To continually advance with unwavering hard work, dedication, perseverance and innovation, aiming to reach the pinnacle of the construction business in Nepal.</p>
+    </div>
+  </div>
+
+  <div class="wrap vision-quote-wrap">
+    <div class="vision-quote">
+      <p>“Nepal's one-stop construction solutions partner — bitumen, cement, construction chemicals, hydropower and more, backed by technical expertise on every project site.”</p>
+    </div>
+  </div>
+
+  <div class="wrap corevalues-head">
+    <h2>What we carry onto every site</h2>
+  </div>
+  <div class="wrap grid grid-3 corevalues-grid">
+    <div class="tile tile--dark">
+      <span class="icon-circle" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 12.5 7 21l5-2.5L17 21l-1.5-8.5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </span>
+      <h3>Excellence</h3>
+      <p>A relentless pursuit of excellence in everything we do.</p>
+    </div>
+    <div class="tile tile--dark">
+      <span class="icon-circle" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="12" r="6" stroke="currentColor" stroke-width="1.6"/><circle cx="15" cy="12" r="6" stroke="currentColor" stroke-width="1.6"/></svg>
+      </span>
+      <h3>Customer commitment</h3>
+      <p>Deep commitment to exceeding customer expectations.</p>
+    </div>
+    <div class="tile tile--dark">
+      <span class="icon-circle" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 21h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.45 1 .95 1.1 1.6h4.8c.1-.65.5-1.15 1.1-1.6A6 6 0 0 0 12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </span>
+      <h3>Innovation</h3>
+      <p>A culture of innovation across every business vertical.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-white">
+  <div class="wrap" style="text-align:center;">
+    <p class="section-lead" style="margin:0 auto 20px;">See more of what HRGG has built, invested in and how we operate responsibly.</p>
+    <div class="cta2-actions" style="justify-content:center;">
+      <a class="btn btn-outline" href="/business-overview/">Business Overview</a>
+      <a class="btn btn-outline" href="/investors/">Investors</a>
+      <a class="btn btn-outline" href="/sustainability/">Sustainability</a>
+    </div>
+  </div>
+</section>
+
+{% include "enquiry-cta.njk" %}

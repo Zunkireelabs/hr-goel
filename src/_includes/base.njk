@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} · {{ site.name }}</title>
+  <meta name="description" content="{{ description or (site.name + ' — ' + site.tagline) }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="navbar-row">
+      <a href="/" class="brand">
+        <img src="/assets/logo-mark.png" alt="" width="47" height="50" class="brand-mark">
+        <img src="/assets/logo-wordmark.png" alt="{{ site.name }}" width="163" height="30" class="brand-word">
+      </a>
+      <nav class="site-nav">
+        <a href="/" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
+        <a href="/about/" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About Us</a>
+        <div class="nav-dropdown">
+          <a href="/business-overview/" {% if page.url == '/business-overview/' %}aria-current="page"{% endif %}>Business Overview ▾</a>
+          <div class="nav-dropdown__menu">
+            <div class="nav-dropdown__menu-inner">
+              {% for cat in products.categories %}<a href="/business-overview/{{ cat.slug }}/">{{ cat.name }}</a>{% endfor %}
+            </div>
+          </div>
+        </div>
+        <a href="/investors/" {% if page.url == '/investors/' %}aria-current="page"{% endif %}>Investors</a>
+        <a href="/sustainability/" {% if page.url == '/sustainability/' %}aria-current="page"{% endif %}>Sustainability</a>
+        <div class="nav-dropdown">
+          <a href="/dealers/" {% if page.url == '/dealers/' or page.url == '/downloads/' or page.url == '/support/' or page.url == '/tools/' %}aria-current="page"{% endif %}>Resources ▾</a>
+          <div class="nav-dropdown__menu">
+            <div class="nav-dropdown__menu-inner">
+              <a href="/dealers/">Dealer Locator</a>
+              <a href="/downloads/">Downloads</a>
+              <a href="/support/">Technical Support</a>
+              <a href="/tools/">Calculators</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="navbar-cta">
+        <a class="navbar-phone" href="tel:{{ site.phone[0] }}">
+          <span aria-hidden="true">📞</span> {{ site.phone[0] }}
+        </a>
+        <a class="navbar-icon-btn" href="/contact/" aria-label="Contact us" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-primary btn-sm" href="/contact/#quote">Get a Quote</a>
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <nav class="mobile-nav__links">
+        <a href="/" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
+        <a href="/about/" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About Us</a>
+        <a href="/business-overview/" {% if page.url == '/business-overview/' %}aria-current="page"{% endif %}>Business Overview</a>
+        <div class="mobile-nav__subgroup">
+          {% for cat in products.categories %}
+          <a class="mobile-nav__sublink" href="/business-overview/{{ cat.slug }}/">{{ cat.name }}</a>
+          {% endfor %}
+        </div>
+        <a href="/investors/" {% if page.url == '/investors/' %}aria-current="page"{% endif %}>Investors</a>
+        <a href="/sustainability/" {% if page.url == '/sustainability/' %}aria-current="page"{% endif %}>Sustainability</a>
+        <a href="/dealers/" {% if page.url == '/dealers/' %}aria-current="page"{% endif %}>Dealer Locator</a>
+        <a href="/downloads/" {% if page.url == '/downloads/' %}aria-current="page"{% endif %}>Downloads</a>
+        <a href="/support/" {% if page.url == '/support/' %}aria-current="page"{% endif %}>Technical Support</a>
+        <a href="/tools/" {% if page.url == '/tools/' %}aria-current="page"{% endif %}>Calculators</a>
+        <a href="/contact/" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Contact</a>
+      </nav>
+      <div class="mobile-nav__foot">
+        <a class="navbar-phone" href="tel:{{ site.phone[0] }}"><span aria-hidden="true">📞</span> {{ site.phone[0] }}</a>
+        <a class="btn btn-primary btn-lg" href="/contact/#quote">Get a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer-grid">
+        <div class="footer-col footer-col-brand">
+          <img src="/assets/logo.png" alt="{{ site.name }}" width="168" height="40" class="footer-logo">
+          <p>{{ site.tagline }} — 40+ years serving Nepal's construction industry.</p>
+          <div class="footer-social">
+            <a href="{{ site.social.facebook }}">Facebook</a>
+            <a href="{{ site.social.linkedin }}">LinkedIn</a>
+            <a href="{{ site.social.instagram }}">Instagram</a>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <h3>Explore</h3>
+          <a href="/about/">About Us</a>
+          <a href="/business-overview/">Business Overview</a>
+          <a href="/investors/">Investors</a>
+          <a href="/sustainability/">Sustainability</a>
+          <a href="/downloads/">Downloads</a>
+          <a href="/support/">Technical Support</a>
+          <a href="/dealers/">Dealer Locator</a>
+          <a href="/tools/">Calculators</a>
+        </div>
+        <div class="footer-nav">
+          <h3>Branches</h3>
+          {% for b in site.branches %}<a href="/dealers/">{{ b }}</a>{% endfor %}
+        </div>
+        <div class="footer-col footer-col-contact">
+          <h3>Contact</h3>
+          {% for p in site.phone %}<a class="footer-contact-phone" href="tel:{{ p }}">{{ p }}</a>{% endfor %}
+          <a class="footer-contact-email" href="mailto:{{ site.email }}">{{ site.email }}</a>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 {{ site.name }}. All rights reserved.</p>
+        <p>{{ site.tagline }} — since the 1970s</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var header = document.querySelector('.site-header');
+      if (!header) return;
+      function update() {
+        header.classList.toggle('is-solid', window.scrollY > 40);
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script>
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.timeline-row-inner');
+      if (!items.length) return;
+      if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('is-visible'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+  <script>
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var panel = document.getElementById('mobileNav');
+      if (!toggle || !panel) return;
+      toggle.addEventListener('click', function () {
+        var open = panel.classList.toggle('is-open');
+        toggle.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', open);
+      });
+      panel.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          panel.classList.remove('is-open');
+          toggle.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('nav-open');
+        });
+      });
+    })();
+  </script>
+
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 15l7-7 7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <script>
+    (function () {
+      var btn = document.querySelector('.back-to-top');
+      if (!btn) return;
+      window.addEventListener('scroll', function () {
+        var visible = window.scrollY > 500;
+        btn.classList.toggle('is-visible', visible);
+      });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

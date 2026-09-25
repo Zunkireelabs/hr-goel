@@ -1,0 +1,44 @@
+---
+layout: base.njk
+title: Business Overview
+permalink: /business-overview/
+---
+{% set liveDivisions = products.categories | rejectattr("draft") | list %}
+<section class="page-hero">
+  <div class="page-hero-media" style="background-image:url('/assets/projects/building.jpg')" aria-hidden="true"></div>
+  <div class="page-hero-overlay" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>Business Overview</h1>
+    <p>A diversified group built over four decades — from construction materials to energy, finance and automotive.</p>
+    <div class="page-hero-stats">
+      <div class="page-hero-stat"><span class="num">{{ liveDivisions.length }}</span><span class="sub">Business sectors</span></div>
+      <div class="page-hero-stat"><span class="num">40<span class="plus">+</span></span><span class="sub">Years of experience</span></div>
+      <div class="page-hero-stat"><span class="num">7<span class="plus">+</span></span><span class="sub">Branches nationwide</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-white">
+  <div class="wrap" style="max-width:760px; text-align:center; margin:0 auto 48px;">
+    <h2>One group, seven sectors</h2>
+    <p class="section-lead" style="margin:14px auto 0;">HRGG began as a construction-materials trading business in the 1970s. Four decades on, it has grown into a diversified group with interests spanning construction, energy, finance and automotive — each sector held to the same standard of quality and trust.</p>
+  </div>
+
+  <div class="wrap divisions-grid grid grid-3">
+    {% for cat in products.categories %}
+    <a class="division-card" href="/business-overview/{{ cat.slug }}/">
+      <div class="division-card-media">
+        <img src="{{ cat.image }}" alt="{{ cat.name }}" loading="lazy" style="object-position: {{ cat.heroPosition or 'center' }};">
+        <span class="division-card-num">0{{ loop.index }}</span>
+      </div>
+      <div class="division-card-body">
+        <h3>{{ cat.name }}{% if cat.draft %} <span class="badge-draft">Coming soon</span>{% endif %}</h3>
+        <p>{{ cat.summary }}</p>
+        {% if cat.items.length %}<p class="division-card-meta">{{ cat.items.length }} key partner{% if cat.items.length != 1 %}s{% endif %} / brands in this sector</p>{% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% include "enquiry-cta.njk" %}

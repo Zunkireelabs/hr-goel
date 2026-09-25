@@ -1,0 +1,59 @@
+---
+layout: base.njk
+title: Downloads
+permalink: /downloads/
+---
+<section class="page-hero">
+  <div class="page-hero-media" style="background-image:url('/assets/projects/modern-residence.jpg')" aria-hidden="true"></div>
+  <div class="page-hero-overlay" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>Download Centre</h1>
+    <p>Catalogues, technical data sheets, MSDS, certificates and guides — searchable and ready to share with your team.</p>
+  </div>
+</section>
+
+<section class="section-white section-tight-top product-jump-section">
+  <div class="wrap product-jump">
+    {% for cat in products.categories %}
+    {% if not cat.draft %}
+    <a class="product-jump-pill" href="#dl-{{ cat.slug }}">{{ cat.name }}</a>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="grid grid-3">
+      {% for cat in products.categories %}
+      {% if not cat.draft %}
+      <div class="card dl-card" id="dl-{{ cat.slug }}">
+        <div class="dl-card-head">
+          <span class="hrgg-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+          <h3>{{ cat.name }}</h3>
+        </div>
+        <div class="dl-files">
+          <a class="dl-file" href="#">
+            <span class="dl-file-icon">PDF</span>
+            <span class="dl-file-name">Product catalogue</span>
+            <span class="dl-file-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0 4.5-4.5M12 15 7.5 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          </a>
+          <a class="dl-file" href="#">
+            <span class="dl-file-icon">TDS</span>
+            <span class="dl-file-name">Technical data sheet</span>
+            <span class="dl-file-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0 4.5-4.5M12 15 7.5 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          </a>
+          <a class="dl-file" href="#">
+            <span class="dl-file-icon">MSDS</span>
+            <span class="dl-file-name">MSDS / safety data</span>
+            <span class="dl-file-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0 4.5-4.5M12 15 7.5 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          </a>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "enquiry-cta.njk" %}

@@ -1,0 +1,34 @@
+[
+  {
+    "era": "1970s",
+    "yearTag": "70s",
+    "title": "Foundations laid",
+    "summary": "Founded by Late Shri Hari Ram Goel, the group's visionary founder, laying the groundwork for what would grow into one of Nepal's most trusted construction names.",
+    "img": "/assets/leadership/hari-ram-goel.jpg",
+    "featured": true
+  },
+  {
+    "era": "1990s – 2000s",
+    "yearTag": "90s",
+    "title": "Growing the portfolio",
+    "summary": "Continued and expanded by his son, Late Shri Ashok Kumar Goel — introducing Nepal's first branded bitumen and cement products.",
+    "img": "/assets/leadership/ashok-kumar-goel.jpg",
+    "featured": true
+  },
+  {
+    "era": "2010s",
+    "yearTag": "10s",
+    "title": "Nationwide reach",
+    "summary": "A branch network opens across the country, and an exclusive partnership brings MYK Arment construction chemicals to Nepal.",
+    "img": "/assets/projects/bridge.jpg",
+    "featured": true
+  },
+  {
+    "era": "Today",
+    "yearTag": "Now",
+    "title": "A one-stop construction partner",
+    "summary": "Led by the third generation of the Goel family, with a portfolio spanning construction materials, financial services, energy and automotive — and recognized as one of Nepal's top taxpayers.",
+    "img": "/assets/projects/modern-residence.jpg",
+    "featured": true
+  }
+]

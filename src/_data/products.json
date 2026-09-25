@@ -1,0 +1,99 @@
+{
+  "categories": [
+    {
+      "slug": "bitumen",
+      "name": "Bitumen",
+      "tagline": "Paving Nepal's roads with trusted binders",
+      "image": "/assets/sectors/bitumen.jpg",
+      "summary": "Road construction and maintenance binders, delivered nationwide through 58 district depots.",
+      "buildingTypes": ["roads-highways", "bridges-infrastructure"],
+      "items": [
+        { "name": "Dolphin NL", "desc": "Nepal's first branded bitumen. Grades VG 10 / VG 30 (60/70, 80/100), complies with IS 73:2013." },
+        { "name": "Jainson", "desc": "Premium bitumen, exclusive distribution.", "image": "/assets/sectors/nepal-highway.jpg" },
+        { "name": "Lanka IOC", "desc": "Subsidiary of Indian Oil Corporation, exclusive distribution.", "image": "/assets/sectors/nepal-highway.jpg" }
+      ]
+    },
+    {
+      "slug": "cement",
+      "name": "Cement",
+      "tagline": "Building the foundations of the nation",
+      "image": "/assets/sectors/cement.jpg",
+      "summary": "OPC and PPC cement from own-production and partner factories across Nepal.",
+      "buildingTypes": ["home-construction", "commercial-building", "industrial"],
+      "items": [
+        { "name": "Saptakoshi Cement", "desc": "OPC & PPC (43 grade), 15,000 bags/day, Biratnagar.", "image": "/assets/sectors/saptakoshi-cement.png" },
+        { "name": "Shivam Cement", "desc": "Premium OPC/PPC, founded 2003, first publicly traded cement co. in Nepal, 3,000 tonnes/day.", "image": "/assets/sectors/shivam-cement.jpeg" },
+        { "name": "Hongshi Shivam Cement", "desc": "FDI joint venture, premium cement, 6,000 tonnes/day.", "image": "/assets/sectors/hongshi-shivam-cement.jpeg" }
+      ]
+    },
+    {
+      "slug": "construction-chemicals",
+      "name": "Construction Chemicals",
+      "tagline": "Protecting and strengthening every structure",
+      "image": "/assets/sectors/construction-chemicals.webp",
+      "summary": "Exclusive Nepal dealer for MYK Arment (Indo-German) construction chemical solutions.",
+      "buildingTypes": ["commercial-building", "industrial", "bridges-infrastructure", "mining-tunnelling"],
+      "items": [
+        { "name": "Waterproofing Systems", "desc": "Solutions for leakage protection and monsoon/climate resistance." },
+        { "name": "Repair & Restoration", "desc": "Repair mortars, bonding agents for cracked or damaged concrete." },
+        { "name": "Concrete Admixtures & Accelerators", "desc": "Micro silica admixtures for stronger concrete." },
+        { "name": "Grouts & Anchors", "desc": "Structural grouting and anchoring solutions." },
+        { "name": "Industrial Flooring", "desc": "Coatings, curing and sealing compounds, dry shake hardeners." },
+        { "name": "Building & Construction Sealants", "desc": "Joint fillers and sealants." },
+        { "name": "Tunnelling & Mining", "desc": "Specialized materials for tunnel and mining projects." },
+        { "name": "Gypsum, Iron Ore, Bauxite & Flyash", "desc": "Raw material supply." }
+      ]
+    },
+    {
+      "slug": "hydropower",
+      "name": "Hydropower",
+      "tagline": "Powering Nepal's growth, sustainably",
+      "image": "/assets/sectors/hydropower.jpg",
+      "summary": "Energy sector investments supporting Nepal's power infrastructure.",
+      "buildingTypes": ["industrial"],
+      "items": [
+        { "name": "Summit Power Company", "desc": "Hydropower generation venture." },
+        { "name": "Upper Balepi Hydropower", "desc": "Hydropower generation venture." }
+      ]
+    },
+    {
+      "slug": "banking-insurance",
+      "name": "Banking & Insurance",
+      "tagline": "Securing futures through trusted partners",
+      "image": "/assets/sectors/banking.jpeg",
+      "summary": "Financial services partnerships across banking and insurance.",
+      "buildingTypes": [],
+      "items": [
+        { "name": "Banking Partners", "desc": "Kumari Bank, Laxmi Sunrise Bank, Himalayan Bank, Prabhu Bank." },
+        { "name": "Insurance Partners", "desc": "Asian Life, Sanima Reliance Life, Crest Micro Life, Protective Micro." }
+      ]
+    },
+    {
+      "slug": "auto",
+      "name": "HRGG Auto",
+      "tagline": "Moving Nepal's industries forward",
+      "image": "/assets/sectors/autos.jpg",
+      "heroPosition": "center 78%",
+      "summary": "Automotive and heavy equipment division.",
+      "buildingTypes": ["industrial", "mining-tunnelling"],
+      "items": [
+        { "name": "SinoTruk", "desc": "Heavy commercial vehicles.", "image": "/assets/sectors/sinotruk-truck.jpg" },
+        { "name": "Ace Equipment", "desc": "Construction and material-handling equipment.", "image": "/assets/sectors/construction-equipment.jpg" }
+      ]
+    },
+    {
+      "slug": "consumer-fmcg",
+      "name": "Consumer & FMCG Products",
+      "tagline": "Everyday essentials for everyday life",
+      "image": "/assets/sectors/consumer-fmcg-hero.jpg",
+      "summary": "Everyday consumer goods under our Radiant brand.",
+      "draft": true,
+      "buildingTypes": [],
+      "items": [
+        { "name": "Cosmetics", "desc": "Cosmetics and personal care products.", "image": "/assets/sectors/radiant-cosmetics.jpg" },
+        { "name": "Skin Care", "desc": "Skin care products under the Radiant brand.", "image": "/assets/sectors/skin-care.jpg" },
+        { "name": "Tissue", "desc": "Tissue and related consumer goods.", "image": "/assets/sectors/radiant-tissue.jpg" }
+      ]
+    }
+  ]
+}

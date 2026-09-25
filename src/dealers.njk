@@ -1,0 +1,74 @@
+---
+layout: base.njk
+title: Dealer Locator
+permalink: /dealers/
+---
+<section class="page-hero">
+  <div class="page-hero-media" style="background-image:url('/assets/projects/building.jpg')" aria-hidden="true"></div>
+  <div class="page-hero-overlay" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>Dealer Locator</h1>
+    <p>Find your nearest HRGG branch or dealer by province, district, or product.</p>
+  </div>
+</section>
+
+<section class="section-white section-tight-top dealer-finder">
+  <div class="wrap">
+    <div class="card dealer-search-card">
+      <div class="form" style="grid-template-columns: repeat(4, 1fr); align-items:end;">
+        <div>
+          <label for="d-province">Province</label>
+          <select id="d-province"><option>All provinces</option><option>Bagmati</option><option>Madhesh</option><option>Koshi</option><option>Lumbini</option></select>
+        </div>
+        <div>
+          <label for="d-district">District</label>
+          <select id="d-district"><option>All districts</option><option>Kathmandu</option><option>Makwanpur</option><option>Parsa</option><option>Jhapa</option><option>Morang</option><option>Rupandehi</option><option>Kapilvastu</option></select>
+        </div>
+        <div>
+          <label for="d-product">Product</label>
+          <select id="d-product">
+            <option>All products</option>
+            {% for cat in products.categories %}<option>{{ cat.name }}</option>{% endfor %}
+          </select>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="button" style="width:100%;">Search</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-2 dealer-grid">
+      <div class="map-media">
+        <svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice">
+          <rect width="400" height="320" fill="#f3e9df"/>
+          <path d="M40 250 Q60 120 140 90 Q200 70 230 120 Q260 170 330 150 Q370 140 380 90" stroke="#e0cdbd" stroke-width="18" fill="none" stroke-linecap="round"/>
+          <path d="M40 250 Q60 120 140 90 Q200 70 230 120 Q260 170 330 150 Q370 140 380 90" stroke="#c8862e" stroke-width="2" stroke-dasharray="6 6" fill="none"/>
+          <g fill="#7a1f1c">
+            <circle cx="70" cy="230" r="8"/><circle cx="140" cy="95" r="8"/><circle cx="230" cy="118" r="8"/>
+            <circle cx="300" cy="160" r="8"/><circle cx="355" cy="105" r="8"/><circle cx="200" cy="200" r="8"/><circle cx="120" cy="160" r="10"/>
+          </g>
+        </svg>
+        <div class="map-media-badge">
+          <div class="num">{{ site.branches.length }}</div>
+          <div class="sub">Branches nationwide</div>
+        </div>
+      </div>
+      <div class="grid dealer-results">
+        {% for b in site.branches %}
+        <div class="branch-card branch-card--result{% if loop.first %} branch-card--hq{% endif %}">
+          <span class="branch-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg>
+          </span>
+          <div>
+            {% if loop.first %}<span class="branch-card-tag">Head office</span>{% endif %}
+            <p>{{ b }}</p>
+            <p class="branch-card-meta">{{ site.phone[0] }} · {{ site.email }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "enquiry-cta.njk" %}

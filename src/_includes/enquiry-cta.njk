@@ -1,0 +1,96 @@
+<section id="quote" class="enquiry-section">
+  <div class="enquiry-band{% if page.url != "/" %} enquiry-band--plain{% endif %}">
+    {% if page.url == "/" %}<img class="enquiry-photo" src="/assets/cta-building.jpg" alt="" loading="lazy">{% endif %}
+
+    <div class="wrap enquiry-inner">
+      <div class="enquiry-card" id="cta2FormPanel">
+        <h2 class="enquiry-heading">Tell us what you're building — we'll quote the right product, fast</h2>
+
+        <form class="enquiry-form" id="cta2Form">
+          <div class="enquiry-grid">
+            <input type="text" name="name" placeholder="Your Name*" required>
+            <input type="text" name="company" placeholder="Company / Organization">
+            <input type="tel" name="phone" placeholder="Phone Number *" required>
+            <input type="email" name="email" placeholder="Email*" required>
+            <div class="enquiry-select">
+              <select name="project" required>
+                <option value="" selected disabled>What are you building?*</option>
+                <option>Home construction</option>
+                <option>Commercial building</option>
+                <option>Roads &amp; highways</option>
+                <option>Bridges &amp; infrastructure</option>
+                <option>Industrial project</option>
+                <option>Mining &amp; tunnelling</option>
+                <option>Hydropower</option>
+              </select>
+            </div>
+            <div class="enquiry-select">
+              <select name="product" required>
+                <option value="" selected disabled>Product / solution needed*</option>
+                {% for cat in products.categories %}<option>{{ cat.name }}</option>{% endfor %}
+                <option>Not sure — please advise</option>
+              </select>
+            </div>
+            <input type="text" name="quantity" placeholder="Quantity (e.g. 500 bags, 20 tonnes)">
+            <div class="enquiry-select">
+              <select name="location">
+                <option value="" selected disabled>Nearest branch / delivery location</option>
+                {% for b in site.branches %}<option>{{ b }}</option>{% endfor %}
+              </select>
+            </div>
+            <label class="enquiry-date">
+              <span class="enquiry-date__label">Needed by</span>
+              <input type="date" name="deliveryDate">
+            </label>
+          </div>
+          <div class="enquiry-footer">
+            <p class="enquiry-note">We're excited to connect with you!<br>Required fields are marked *</p>
+            <button type="submit" class="enquiry-cta">
+              <span>Get My Quote</span>
+              <span class="enquiry-cta__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="enquiry-card cta2-panel--success" id="cta2SuccessPanel" hidden>
+        <span class="cta2-success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4.5 4.5L19 8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h2 class="enquiry-heading">Thanks — we've got your request!</h2>
+        <p class="cta2-lead">Our team will reach out within one business day. Need it sooner? Chat with us on WhatsApp.</p>
+        <div class="cta2-actions">
+          <a class="btn btn-gold btn-lg" href="{{ site.whatsapp }}" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          <button type="button" class="cta2-reset-link" id="cta2Reset">Send another request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var resetBtn = document.getElementById('cta2Reset');
+    var panelForm = document.getElementById('cta2FormPanel');
+    var panelSuccess = document.getElementById('cta2SuccessPanel');
+    var form = document.getElementById('cta2Form');
+    if (!panelForm || !panelSuccess || !form) return;
+
+    var panels = [panelForm, panelSuccess];
+    function show(panel) {
+      panels.forEach(function (p) { p.hidden = p !== panel; });
+      var focusable = panel.querySelector('input, select, button');
+      if (focusable) focusable.focus({ preventScroll: true });
+    }
+
+    resetBtn.addEventListener('click', function () { form.reset(); show(panelForm); });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      show(panelSuccess);
+    });
+  })();
+</script>
