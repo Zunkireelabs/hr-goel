@@ -17,13 +17,12 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=hosting"
       # HTTPS router
-      # TODO(Sadin): replace REPLACE_STAGING_DOMAIN with the actual staging domain before deploying
-      - "traefik.http.routers.hr-goel-web-stage.rule=Host(`REPLACE_STAGING_DOMAIN`)"
+      - "traefik.http.routers.hr-goel-web-stage.rule=Host(`hr-goel.zunkireelabs.com`)"
       - "traefik.http.routers.hr-goel-web-stage.entrypoints=websecure"
       - "traefik.http.routers.hr-goel-web-stage.tls=true"
       - "traefik.http.routers.hr-goel-web-stage.tls.certresolver=letsencrypt"
       # HTTP → HTTPS redirect
-      - "traefik.http.routers.hr-goel-web-stage-http.rule=Host(`REPLACE_STAGING_DOMAIN`)"
+      - "traefik.http.routers.hr-goel-web-stage-http.rule=Host(`hr-goel.zunkireelabs.com`)"
       - "traefik.http.routers.hr-goel-web-stage-http.entrypoints=web"
       - "traefik.http.routers.hr-goel-web-stage-http.middlewares=hr-goel-web-stage-redirect"
       - "traefik.http.middlewares.hr-goel-web-stage-redirect.redirectscheme.scheme=https"
