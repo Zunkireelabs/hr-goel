@@ -7,6 +7,8 @@ services:
     networks:
       - hosting
     restart: unless-stopped
+    environment:
+      - CRM_API_KEY=${CRM_API_KEY:?CRM_API_KEY is not set}
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:80/"]
       interval: 30s

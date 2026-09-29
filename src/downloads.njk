@@ -15,9 +15,7 @@ permalink: /downloads/
 <section class="section-white section-tight-top product-jump-section">
   <div class="wrap product-jump">
     {% for cat in products.categories %}
-    {% if not cat.draft %}
-    <a class="product-jump-pill" href="#dl-{{ cat.slug }}">{{ cat.name }}</a>
-    {% endif %}
+    <a class="product-jump-pill" href="#dl-{{ cat.slug }}">{{ 'Cosmetics' if cat.slug == 'consumer-fmcg' else cat.name }}</a>
     {% endfor %}
   </div>
 </section>
@@ -26,11 +24,10 @@ permalink: /downloads/
   <div class="wrap">
     <div class="grid grid-3">
       {% for cat in products.categories %}
-      {% if not cat.draft %}
       <div class="card dl-card" id="dl-{{ cat.slug }}">
         <div class="dl-card-head">
           <span class="hrgg-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
-          <h3>{{ cat.name }}</h3>
+          <h3>{{ 'Cosmetics' if cat.slug == 'consumer-fmcg' else cat.name }}</h3>
         </div>
         <div class="dl-files">
           <a class="dl-file" href="#">
@@ -50,7 +47,6 @@ permalink: /downloads/
           </a>
         </div>
       </div>
-      {% endif %}
       {% endfor %}
     </div>
   </div>

@@ -75,7 +75,7 @@
       "image": "/assets/sectors/autos.jpg",
       "heroPosition": "center 78%",
       "summary": "Automotive and heavy equipment division.",
-      "buildingTypes": ["industrial", "mining-tunnelling"],
+      "buildingTypes": ["industrial", "mining-tunnelling", "automobile"],
       "items": [
         { "name": "SinoTruk", "desc": "Heavy commercial vehicles.", "image": "/assets/sectors/sinotruk-truck.jpg" },
         { "name": "Ace Equipment", "desc": "Construction and material-handling equipment.", "image": "/assets/sectors/construction-equipment.jpg" }
@@ -83,7 +83,7 @@
     },
     {
       "slug": "consumer-fmcg",
-      "name": "Consumer & FMCG Products",
+      "name": "Cosmetics & Consumer Products",
       "tagline": "Everyday essentials for everyday life",
       "image": "/assets/sectors/consumer-fmcg-hero.jpg",
       "summary": "Everyday consumer goods under our Radiant brand.",

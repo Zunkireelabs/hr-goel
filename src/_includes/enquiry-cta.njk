@@ -14,7 +14,7 @@
             <input type="email" name="email" placeholder="Email*" required>
             <div class="enquiry-select">
               <select name="project" required>
-                <option value="" selected disabled>What are you building?*</option>
+                <option value="" selected disabled>What are you building or sourcing?*</option>
                 <option>Home construction</option>
                 <option>Commercial building</option>
                 <option>Roads &amp; highways</option>
@@ -22,12 +22,15 @@
                 <option>Industrial project</option>
                 <option>Mining &amp; tunnelling</option>
                 <option>Hydropower</option>
+                <option>Automobile, vehicles &amp; equipment</option>
+                <option>Cosmetics &amp; retail</option>
               </select>
             </div>
             <div class="enquiry-select">
               <select name="product" required>
                 <option value="" selected disabled>Product / solution needed*</option>
-                {% for cat in products.categories %}<option>{{ cat.name }}</option>{% endfor %}
+                {% for cat in products.categories %}{% if cat.slug != "banking-insurance" %}<option>{{ cat.name }}</option>{% endif %}{% endfor %}
+                <option>Investment / partnership enquiry</option>
                 <option>Not sure — please advise</option>
               </select>
             </div>
@@ -87,10 +90,70 @@
 
     resetBtn.addEventListener('click', function () { form.reset(); show(panelForm); });
 
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var errorEl = document.createElement('p');
+    errorEl.className = 'enquiry-note';
+    errorEl.setAttribute('role', 'alert');
+    errorEl.style.color = '#b3261e';
+    errorEl.hidden = true;
+    form.querySelector('.enquiry-footer').before(errorEl);
+
+    var ERRORS = {
+      400: 'Please check the highlighted details and try again.',
+      403: 'This form can only be submitted from hr-goel.zunkireelabs.com.',
+      429: 'Too many requests — please wait a minute and try again.',
+      503: 'Our system is busy right now — please try again shortly.'
+    };
+
+    function buildPayload() {
+      var f = form.elements;
+      function v(n) { return (f[n].value || '').trim(); }
+      var custom = {
+        company_organization: v('company'),
+        what_are_you_building: v('project'),
+        product_solution_needed: v('product'),
+        quantity: v('quantity'),
+        nearest_branch_delivery_location: v('location'),
+        needed_by: v('deliveryDate')
+      };
+      Object.keys(custom).forEach(function (k) { if (!custom[k]) delete custom[k]; });
+      return {
+        first_name: v('name'),
+        phone: v('phone'),
+        email: v('email'),
+        intake_source: 'hr-goel.zunkireelabs.com',
+        custom_fields: custom
+      };
+    }
+
+    function post(payload) {
+      return fetch('/api/get-a-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
-      show(panelSuccess);
+      errorEl.hidden = true;
+      submitBtn.disabled = true;
+      var payload = buildPayload();
+
+      post(payload)
+        .then(function (res) { return res.status === 503 ? post(payload) : res; })
+        .then(function (res) {
+          // 201 = created, 200 = deduped; both show the thank-you state
+          if (res.status === 200 || res.status === 201) { show(panelSuccess); return; }
+          errorEl.textContent = ERRORS[res.status] || 'Something went wrong — please try again or call us.';
+          errorEl.hidden = false;
+        })
+        .catch(function () {
+          errorEl.textContent = 'Network error — please check your connection and try again.';
+          errorEl.hidden = false;
+        })
+        .then(function () { submitBtn.disabled = false; });
     });
   })();
 </script>
