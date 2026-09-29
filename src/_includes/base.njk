@@ -60,8 +60,13 @@
       <nav class="mobile-nav__links">
         <a href="/" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
         <a href="/about/" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About Us</a>
-        <a href="/business-overview/" {% if page.url == '/business-overview/' %}aria-current="page"{% endif %}>Business Overview</a>
-        <div class="mobile-nav__subgroup">
+        <div class="mobile-nav__row">
+          <a href="/business-overview/" {% if page.url == '/business-overview/' %}aria-current="page"{% endif %}>Business Overview</a>
+          <button type="button" class="mobile-nav__expand" id="mobileSubToggle" aria-expanded="false" aria-controls="mobileSub" aria-label="Show sectors">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="mobile-nav__subgroup" id="mobileSub" hidden>
           {% for cat in products.categories %}
           <a class="mobile-nav__sublink" href="/business-overview/{{ cat.slug }}/">{{ cat.name }}</a>
           {% endfor %}
@@ -161,6 +166,18 @@
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         document.body.classList.toggle('nav-open', open);
       });
+      var subBtn = document.getElementById('mobileSubToggle');
+      var sub = document.getElementById('mobileSub');
+      if (subBtn && sub) {
+        if (sub.querySelector('[aria-current="page"]') || /^\/business-overview\//.test(location.pathname)) {
+          sub.hidden = false; subBtn.setAttribute('aria-expanded', 'true');
+        }
+        subBtn.addEventListener('click', function () {
+          var open = sub.hidden;
+          sub.hidden = !open;
+          subBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
       panel.querySelectorAll('a').forEach(function (a) {
         a.addEventListener('click', function () {
           panel.classList.remove('is-open');

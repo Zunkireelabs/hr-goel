@@ -9,12 +9,12 @@
         <form class="enquiry-form" id="cta2Form">
           <div class="enquiry-grid">
             <input type="text" name="name" placeholder="Your Name*" required>
-            <input type="text" name="company" placeholder="Company / Organization">
+            <input type="text" name="company" placeholder="Company">
             <input type="tel" name="phone" placeholder="Phone Number *" required>
             <input type="email" name="email" placeholder="Email*" required>
             <div class="enquiry-select">
               <select name="project" required>
-                <option value="" selected disabled>What are you building or sourcing?*</option>
+                <option value="" selected disabled>Project type*</option>
                 <option>Home construction</option>
                 <option>Commercial building</option>
                 <option>Roads &amp; highways</option>
@@ -28,16 +28,16 @@
             </div>
             <div class="enquiry-select">
               <select name="product" required>
-                <option value="" selected disabled>Product / solution needed*</option>
+                <option value="" selected disabled>Product needed*</option>
                 {% for cat in products.categories %}{% if cat.slug != "banking-insurance" %}<option>{{ cat.name }}</option>{% endif %}{% endfor %}
                 <option>Investment / partnership enquiry</option>
                 <option>Not sure — please advise</option>
               </select>
             </div>
-            <input type="text" name="quantity" placeholder="Quantity (e.g. 500 bags, 20 tonnes)">
+            <input type="text" name="quantity" placeholder="Quantity (e.g. 50 bags)">
             <div class="enquiry-select">
               <select name="location">
-                <option value="" selected disabled>Nearest branch / delivery location</option>
+                <option value="" selected disabled>Nearest branch</option>
                 {% for b in site.branches %}<option>{{ b }}</option>{% endfor %}
               </select>
             </div>
