@@ -52,7 +52,7 @@ eleventyComputed:
       </div>
       <div class="sector-stat">
         <span class="sector-stat-rule" aria-hidden="true"></span>
-        <span class="num">7</span>
+        <span class="num">{{ products.categories | rejectattr("draft") | list | length }}</span>
         <p>Business sectors making up the diversified HRGG Group.</p>
       </div>
     </div>

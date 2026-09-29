@@ -19,7 +19,7 @@ permalink: /about/
       <p class="section-lead" style="margin-bottom:0;">HR Goel Group started as a single construction-materials trading counter in the 1970s. Today it's a diversified group spanning bitumen, cement, construction chemicals, hydropower, banking &amp; insurance, automotive and consumer goods — still family-led, still headquartered in Nepal, and still building the country's roads, homes and infrastructure every day.</p>
     </div>
     <div class="about-summary-facts">
-      <div class="about-fact"><span class="num">{{ products.categories.length }}</span><span class="label">Business sectors</span></div>
+      <div class="about-fact"><span class="num">{{ products.categories | rejectattr("draft") | list | length }}</span><span class="label">Business sectors</span></div>
       <div class="about-fact"><span class="num">40<span class="plus">+</span></span><span class="label">Years of operation</span></div>
       <div class="about-fact"><span class="num">7<span class="plus">+</span></span><span class="label">Branches nationwide</span></div>
       <div class="about-fact"><span class="num">3<span class="plus">rd</span></span><span class="label">Generation family-led</span></div>

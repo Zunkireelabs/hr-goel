@@ -87,7 +87,6 @@
       "tagline": "Everyday essentials for everyday life",
       "image": "/assets/sectors/consumer-fmcg-hero.jpg",
       "summary": "Everyday consumer goods under our Radiant brand.",
-      "draft": true,
       "buildingTypes": [],
       "items": [
         { "name": "Cosmetics", "desc": "Cosmetics and personal care products.", "image": "/assets/sectors/radiant-cosmetics.jpg" },

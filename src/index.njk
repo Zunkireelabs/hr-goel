@@ -3,6 +3,7 @@ layout: base.njk
 title: Home
 permalink: /
 ---
+{% set liveDivisions = products.categories | rejectattr("draft") | list %}
 <section class="hero">
   <div class="hero-media" style="background-image:url('/assets/hero-building-wide.jpg')"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
@@ -32,7 +33,7 @@ permalink: /
         <a href="/dealers/">Find a branch <span aria-hidden="true">→</span></a>
       </div>
       <div class="impact-stat">
-        <div class="num">{{ products.categories.length }}</div>
+        <div class="num">{{ liveDivisions.length }}</div>
         <div class="sub">Business sectors, one connected group</div>
         <a href="/business-overview/">See our sectors <span aria-hidden="true">→</span></a>
       </div>
@@ -54,7 +55,6 @@ permalink: /
   "auto": "/assets/sectors/auto.jpg",
   "consumer-fmcg": "/assets/projects/modern-residence.jpg"
 } %}
-{% set liveDivisions = products.categories | rejectattr("draft") | list %}
 <section class="sectors-section">
   <div class="wrap">
     <div class="sectors-head">

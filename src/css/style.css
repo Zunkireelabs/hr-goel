@@ -1,7 +1,7 @@
 :root {
   --red: #b6402d;
   --red-2: #963624;
-  --red-3: #c65940;
+  --red-3: #b04a34;
   --ink: #2b1e19;
   --gold: #c8862e;
   --gold-2: #e8ab4f;
@@ -162,8 +162,8 @@ body.nav-open { overflow: hidden; }
 .btn-ghost:hover { background: rgba(255,255,255,.1); border-color: #fff; }
 .btn-outline { border: 1.5px solid var(--red); color: var(--red); background: transparent; }
 .btn-outline:hover { background: var(--red); color: #fff; }
-.btn-gold { background: var(--gold); color: #241300; }
-.btn-gold:hover { background: var(--gold-3); }
+.btn-gold { background: var(--red); color: #fff; }
+.btn-gold:hover { background: var(--red-2); }
 
 /* ============ Section rhythm — flat stacked blocks, no curve-top overlap ============ */
 section { padding: 80px 0; }
@@ -649,18 +649,18 @@ section .section-lead { color: var(--muted); max-width: 620px; margin-bottom: 40
 .site-footer .wrap { padding-top: 64px; padding-bottom: 32px; }
 .footer-logo { filter: brightness(0) invert(1); opacity: .92; }
 .site-footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 32px; }
-.footer-col-brand p { color: #4a1c12; font-size: 15px; line-height: 1.6; margin: 14px 0 18px; max-width: 280px; }
+.footer-col-brand p { color: #fff3ec; font-size: 15px; line-height: 1.6; margin: 14px 0 18px; max-width: 280px; }
 .footer-nav h3, .footer-col-contact h3 { font-family: var(--font-head); font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: .04em; color: #fff; margin: 0 0 16px; }
-.footer-nav a, .footer-col-contact a { display: block; font-size: 16px; color: #4a1c12; margin-bottom: 12px; transition: color .15s; }
-.footer-nav a:hover, .footer-col-contact a:hover { color: #1f0c07; }
+.footer-nav a, .footer-col-contact a { display: block; font-size: 16px; color: #fff3ec; margin-bottom: 12px; transition: color .15s; }
+.footer-nav a:hover, .footer-col-contact a:hover { color: #ffffff; }
 .footer-contact-phone { font-family: var(--font-head); font-weight: 700; font-size: 17px; color: #fff !important; }
-.footer-contact-email { color: #4a1c12 !important; font-size: 16px; }
+.footer-contact-email { color: #fff3ec !important; font-size: 16px; }
 .footer-social { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; }
-.footer-social a { display: inline; margin: 0; color: #4a1c12; }
-.footer-social a:hover { color: #1f0c07; }
+.footer-social a { display: inline; margin: 0; color: #fff3ec; }
+.footer-social a:hover { color: #ffffff; }
 
-.footer-divider { height: 1px; background: rgba(43,24,16,.25); margin: 32px 0 18px; }
-.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; color: #4a1c12; }
+.footer-divider { height: 1px; background: rgba(255,255,255,.28); margin: 32px 0 18px; }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; color: #fff3ec; }
 .footer-bottom p { margin: 0; }
 
 @media (max-width: 900px) {
@@ -1203,8 +1203,8 @@ a.hrgg-tile:hover .hrgg-tile-arrow { background: var(--gold); border-color: var(
 
 .enquiry-footer { margin-top: 26px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
 .enquiry-note { margin: 0; font-size: 13.5px; line-height: 1.45; color: #6b5c53; }
-.enquiry-cta { display: inline-flex; align-items: center; gap: 14px; border: none; cursor: pointer; background: var(--gold); border-radius: 999px; padding: 8px 8px 8px 26px; font-family: inherit; font-weight: 700; font-size: 15px; color: #241300; transition: background .15s; }
-.enquiry-cta:hover { background: var(--gold-3); }
+.enquiry-cta { display: inline-flex; align-items: center; gap: 14px; border: none; cursor: pointer; background: var(--red); border-radius: 999px; padding: 8px 8px 8px 26px; font-family: inherit; font-weight: 700; font-size: 15px; color: #fff; transition: background .15s; }
+.enquiry-cta:hover { background: var(--red-2); }
 .enquiry-cta__icon { width: 34px; height: 34px; border-radius: 50%; background: #fff; color: #241512; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .enquiry-cta__icon svg { width: 16px; height: 16px; }
 
@@ -1461,4 +1461,18 @@ body { overflow-x: hidden; }
   .impact-stats { justify-items: center; text-align: center; }
   .impact-stat { width: 100%; text-align: center; }
   .impact-stat a { justify-content: center; }
+}
+
+/* Hero stat strips: keep all three on one row on phones */
+@media (max-width: 620px) {
+  .page-hero-stats { flex-wrap: nowrap; margin-top: 24px; }
+  .page-hero-stat { flex: 1 1 0; min-width: 0; padding: 12px 8px; text-align: center; align-items: center; }
+  .page-hero-stat .num { font-size: 20px; }
+  .page-hero-stat .sub { font-size: 11px; line-height: 1.3; }
+}
+
+/* Mobile: centre the call-to-action buttons inside dark banners/panels */
+@media (max-width: 640px) {
+  .trust-panel-body .btn { align-self: center; }
+  .photo-banner-body .btn { display: flex; width: fit-content; margin-left: auto; margin-right: auto; }
 }
