@@ -1149,6 +1149,8 @@ a.hrgg-tile:hover .hrgg-tile-arrow { background: var(--gold); border-color: var(
 .back-to-top:hover { background: var(--red-2); }
 .back-to-top svg { width: 20px; height: 20px; }
 .back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+/* The AI widget's round button owns the bottom-right corner on mobile (<=768px) */
+@media (max-width: 768px) { .back-to-top { display: none; } }
 
 /* ============ Quick enquiry CTA — photo band with floating card ============ */
 .enquiry-section { padding: 0; }
