@@ -40,7 +40,7 @@ jobs:
               COMPOSE_FILE="docker-compose.yml"
               CONTAINER="${REPO}-web-prod"
             else
-              DIR="/home/zunkireelabs/devprojects/websiteprojects/${REPO}-web-stage"
+              DIR="/home/zunkireelabs/devprojects/websiteprojects/stage-hr-goel-web"
               COMPOSE_FILE="docker-compose.dev.yml"
               CONTAINER="${REPO}-web-stage"
             fi
